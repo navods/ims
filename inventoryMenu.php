@@ -11,7 +11,8 @@
     <div class="bread">
         <ul class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li>Dashboard</li>
+            <li><a href="dashboard.php">Dashboard</a></li>
+            <li>Inventory Manager</li>
         </ul>
     </div>
     <br>
