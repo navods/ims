@@ -1,17 +1,12 @@
 .home {
     display: flex;
-    background-color: yellow;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-evenly;
+    gap: 5%;
+    padding: 5%;
+    height: 85svh;
 }
 
 .homeBody {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.homeLogo {
-    height: 50%;
+    width: 100vw;
 }

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/icon.svg">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/home.css">
     <title>Inventory Management System</title>
@@ -27,7 +28,7 @@
             <img class="homePic" src="img/homePic.svg">
         </div>
         <div class="homeBody">
-            <img class="homeLogo" src="img/logoW.svg">
+            <img class="homeLogo" src="img/logoB.svg">
         </div>
     </div>
 </body>
