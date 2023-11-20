@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <title>Dashboard | IMS</title>
+    <title>Reports | IMS</title>
 </head>
 <body>
     <?php include "include/navbar.php" ?>
     <div class="bread">
         <ul class="breadcrumb">
-            <li>Dashboard</li>
+            <li><a href="dashboard.php">Dashboard</a></li>
+            <li>Reports</li>
         </ul>
     </div>
     <br>

@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <title>Dashboard | IMS</title>
+    <title>Inventory Manager | IMS</title>
 </head>
 <body>
     <?php include "include/navbar.php" ?>
     <div class="bread">
         <ul class="breadcrumb">
-            <li><a href="#">Home</a></li>
             <li><a href="dashboard.php">Dashboard</a></li>
             <li>Inventory Manager</li>
         </ul>
@@ -18,11 +17,12 @@
     <br>
 
     <div class="menu">
-        <div class="menuItem"><a href="inventoryMenu.php">Inventory Manager</a></div>
-        <div class="menuItem"><a href="reportsMenu.php">Reports</a></div>
-        <div class="menuItem"><a href="sectionMenu.php">Section Manager</a></div>
-        <div class="menuItem"><a href="permissionMenu.php">User Permission Manager</a></div>
-        <div class="menuItem"><a href="profileMenu.php">Profile</a></div>
+        <div class="menuItem"><a href="addDevices.php">Add Devices</a></div>
+        <div class="menuItem"><a href="reviewDevices.php">Review Devices</a></div>
+        <div class="menuItem"><a href="searchDevices.php">Search Devices</a></div>
+        <div class="menuItem"><a href="activeRepairs.php">View Active Repairs</a></div>
+        <div class="menuItem"><a href="devicesList.php">View Database</a></div>
+        <div class="menuItem"><a href="sellersList.php">Sellers & Service Providers</a></div>
     </div>
 </body>
 </html>

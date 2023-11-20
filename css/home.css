@@ -1,0 +1,17 @@
+.home {
+    display: flex;
+    background-color: yellow;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.homeBody {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeLogo {
+    height: 50%;
+}
