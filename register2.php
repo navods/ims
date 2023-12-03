@@ -1,3 +1,12 @@
+<?php
+
+    if (isset($_GET['username'])) {
+        // Retrieve the message variable from the URL
+        $username = $_GET['username'];
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,37 +16,46 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/home.css">
     <link rel="stylesheet" type="text/css" href="css/forms.css">
-    <title>Sign In | Inventory Management System</title>
+    <title>Register | Inventory Management System</title>
 </head>
 <body>
     <header>
         <img class="navLogo" src="img/shortLogoW.svg">
         <nav class="navText">
         <div><a href="index.php">Home</a></div>
-            <div><a href="register.php">Register</a></div>
+            <div><a href="signin.php">Sign In</a></div>
         </nav>
     </header>
-    <!-- <div class="bread">
+    <div class="bread">
         <ul class="breadcrumb">
-            <li>Home</li>
+            <li>REGISTER | STEP 01</li>
+            <li>STEP 02</li>
         </ul>
-    </div> -->
+    </div>
     <br>
 
     <div class="loginContainer">
-        <div class="loginBody">
+        <div class="registerBody">
             <img src="img/shortLogoB.svg">
             <form id="login-form" action="signinCont.php" method="post">
-                <div class="input-group">
+                <div class="input-group greyed">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" value="whaaat" readonly>
+                </div>
+                <div class="input-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+                </div>
+                <div class="input-group">
+                <label for="email">E-mail</label>
+                <input type="text" id="email" name="email" required>
                 </div>
                 <div class="input-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
                 </div>
                 <div class="input-group">
-                <button id="login" type="submit">Login</button>
+                <button id="register" type="submit">Register</button>
                 </div>
             </form>
         </div>

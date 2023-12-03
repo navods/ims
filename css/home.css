@@ -1,4 +1,4 @@
-.home {
+/* .home {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -9,4 +9,98 @@
 
 .homeBody {
     width: 100vw;
+} */
+
+.home {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+}
+
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5vh 0;
+}
+
+.registerBody{
+    margin-top: 5vh;
+    padding: 4% 2%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.322);
+    width: 85%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginBody{
+    margin-top: 5vh;
+    padding: 4% 2%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.322);
+    width: 35%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.registerBody img {
+    width: 4rem;
+    margin-bottom: 3%;
+}
+
+.loginBody img {
+    width: 4rem;
+    margin-bottom: 8%;
+}
+    
+.registerBody form {
+    width: 85%;
+}
+
+.loginBody form {
+    width: 85%;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+}
+
+.greyed input {
+    background-color: #dbdbdb;
+    border: 2px solid blueviolet;
+}
+  
+label {
+display: block;
+margin-bottom: .35rem;
+font-weight: bold;
+}
+
+input,
+button {
+width: 100%;
+padding: 1rem;
+border-radius: 4px;
+font-size: 1rem;
+border: 1px solid #ccc;
+color: #2e2e2e;
+font-weight: 300;
+}
+
+button {
+background-color: blueviolet;
+color: #fff;
+font-size: medium;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+button:hover {
+background-color: rgb(82, 16, 145);
 }

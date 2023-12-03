@@ -7,40 +7,50 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/home.css">
     <link rel="stylesheet" type="text/css" href="css/forms.css">
-    <title>Sign In | Inventory Management System</title>
+    <title>Register | Inventory Management System</title>
 </head>
 <body>
     <header>
         <img class="navLogo" src="img/shortLogoW.svg">
         <nav class="navText">
         <div><a href="index.php">Home</a></div>
-            <div><a href="register.php">Register</a></div>
+            <div><a href="signin.php">Sign In</a></div>
         </nav>
     </header>
-    <!-- <div class="bread">
+    <div class="bread">
         <ul class="breadcrumb">
-            <li>Home</li>
+            <li>REGISTER | STEP 01</li>
         </ul>
-    </div> -->
+    </div>
     <br>
 
     <div class="loginContainer">
-        <div class="loginBody">
+        <div class="registerBody">
             <img src="img/shortLogoB.svg">
-            <form id="login-form" action="signinCont.php" method="post">
+            <form id="userCheck" action="userCheck.php" method="post">
                 <div class="input-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
                 </div>
                 <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-                </div>
-                <div class="input-group">
-                <button id="login" type="submit">Login</button>
+                <button id="checkuser" type="submit">Next</button>
                 </div>
             </form>
         </div>
     </div>
+
+    <script>
+    // Check for the message parameter in the URL
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const message = urlParams.get('message');
+
+      // If a message is received, display it as a popup
+      if (message) {
+        alert(message);
+        // You can also use other methods to display the message in a modal or a specific UI element
+      }
+    };
+    </script>
 </body>
 </html>
