@@ -1,10 +1,8 @@
 <?php
-
-    if (isset($_GET['username'])) {
-        // Retrieve the message variable from the URL
-        $username = $_GET['username'];
-    }
-
+    // session_start();
+    // if (isset($_SESSION['username'])) {
+    //     $username = $_SESSION['username'];
+    // }
 ?>
 
 <!DOCTYPE html>
@@ -28,8 +26,7 @@
     </header>
     <div class="bread">
         <ul class="breadcrumb">
-            <li>REGISTER | STEP 01</li>
-            <li>STEP 02</li>
+            <li>REGISTER | STEP 02</li>
         </ul>
     </div>
     <br>
@@ -38,10 +35,10 @@
         <div class="registerBody">
             <img src="img/shortLogoB.svg">
             <form id="login-form" action="signinCont.php" method="post">
-                <div class="input-group greyed">
+                <!-- <div class="input-group greyed">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" value="whaaat" readonly>
-                </div>
+                <input type="text" id="username" name="username" value="<?php echo $username ?>" readonly>
+                </div> -->
                 <div class="input-group">
                 <label for="fullName">Full Name</label>
                 <input type="text" id="fullName" name="fullName" required>

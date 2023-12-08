@@ -1,3 +1,8 @@
+<?php
+    require_once "userCheck.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +32,7 @@
     <div class="loginContainer">
         <div class="registerBody">
             <img src="img/shortLogoB.svg">
-            <form id="userCheck" action="userCheck.php" method="post">
+            <form id="userCheck" action="register.php" method="post">
                 <div class="input-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
@@ -39,7 +44,7 @@
         </div>
     </div>
 
-    <script>
+    <!-- <script>
     // Check for the message parameter in the URL
     window.onload = function() {
       const urlParams = new URLSearchParams(window.location.search);
@@ -51,6 +56,21 @@
         // You can also use other methods to display the message in a modal or a specific UI element
       }
     };
-    </script>
+    </script> -->
+
+    <?php
+        session_start();
+
+        if (isset($_SESSION['message'])) {
+            // Get the message from the session
+            $message = $_SESSION['message'];
+
+            // Display the message in a JavaScript popup
+            echo "<script>alert('$message');</script>";
+
+            // Unset or clear the 'message' session variable
+            unset($_SESSION['message']);
+        }
+    ?>
 </body>
 </html>

@@ -6,18 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $_POST['username'];
 
         // Your database connection logic goes here
-        $servername = "localhost";
-        $db_username = "root";
-        $db_password = "";
-        $dbname = "ims";
-
-        // Create a connection to the database
-        $conn = new mysqli($servername, $db_username, $db_password, $dbname);
-
-        // Check the connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+        require_once "include/dbh.php";
 
         // Sanitize input to prevent SQL injection (you can use prepared statements for better security)
         $sanitizedUsername = $conn->real_escape_string($username);
@@ -28,25 +17,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Execute the query
         $result = $conn->query($sql);
 
+        session_start();
+
         // Check if there are any results
         if ($result && $result->num_rows > 0) {
             // Username exists, redirect to register.php with a message
-            header("Location: register.php?message=The%20selected%20username%20is%20not%20available");
+            $_SESSION['message'] = "The selected username is unavailble.";
+            header("Location: register.php");
             exit();
         } else {
-            // Username doesn't exist, redirect to register2.php
-            header("Location: register2.php?username=" . urlencode($username));
+            $_SESSION['username'] = $username;
+            // Redirect to register2.php
+            header("Location: register2.php");
             exit();
+
+            // Username doesn't exist, redirect to register2.php
+            // header("Location.href: register2.php?username=" . urlencode($username));
+            // exit();
         }
 
         // Close the database connection
         $conn->close();
     } else {
         // Username field is not set in the POST data
-        echo "Please provide a username";
+        header("Location: register.php");
+        $_SESSION['message'] = "Please enter a username.";
+        exit();
     }
-} else {
-    // Invalid request method
-    echo "Invalid request method";
 }
-?>
+// } else {
+//     // Invalid request method
+//     // echo "Invalid request method";
+// }

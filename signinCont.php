@@ -1,20 +1,10 @@
 <?php
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "ims";
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    require_once "include/dbh.php";
+    session_start();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $username = $_POST['username'];
+        $username = $_SESSION['username'];
         $fullName = $_POST['fullName'];
         $email = $_POST['email'];
         $password = $_POST['password']; // Password should be encrypted before storage
@@ -26,7 +16,8 @@
         $sql = "INSERT INTO users (username, fullName, email, password) VALUES ('$username', '$fullName', '$email', '$hashed_password')";
     
         if ($conn->query($sql) === TRUE) {
-            header("Location: requested.php?permission=0");
+            header("Location: requested.php");
+            $_SESSION['permission'] = 0;
             exit();
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
