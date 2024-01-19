@@ -5,11 +5,12 @@
     gap: 5%;
     padding: 5%;
     height: 85svh;
-}
-
-.homeBody {
-    width: 100vw;
 } */
+
+/* .homeBody {
+    height : 100svh;
+    align-items: center;
+}  */
 
 .home {
     display: grid;

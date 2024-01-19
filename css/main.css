@@ -75,7 +75,7 @@ header a {
 ul.breadcrumb {
     list-style: none;
     font-weight: 500;
-  }
+}
 
 ul.breadcrumb li {
     display: inline;
@@ -87,6 +87,6 @@ ul.breadcrumb li+li:before {
 }
 
 ul.breadcrumb li a {
-    color: blueviolet;
+    color: 1blueviolet;
     text-decoration: none;
 }

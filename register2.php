@@ -34,7 +34,7 @@
     <div class="loginContainer">
         <div class="registerBody">
             <img src="img/shortLogoB.svg">
-            <form id="login-form" action="signinCont.php" method="post">
+            <form id="login-form" action="registerCont.php" method="post">
                 <!-- <div class="input-group greyed">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" value="<?php echo $username ?>" readonly>
