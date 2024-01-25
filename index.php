@@ -9,13 +9,13 @@
     <title>Inventory Management System</title>
 </head>
 <body>
-    <header>
+    <!-- <header>
         <img class="navLogo" src="img/shortLogoW.svg">
         <nav class="navText">
             <div><a href="register.php">Register</a></div>
             <div><a href="signin.php">Sign In</a></div>
         </nav>
-    </header>
+    </header> -->
     <!-- <div class="bread">
         <ul class="breadcrumb">
             <li>Home</li>
@@ -27,9 +27,32 @@
         <div class="homeBody">
             <img class="homePic" src="img/homePic.svg">
         </div>
-        <div class="homeBody">
-            <img class="homeLogo" src="img/logoB.svg">
+        <div class="homeBody RegLog">
+            <img class="homeLogo" src="img/shortLogoB.svg">
+            <h1 id="greeting"></h1>
+            <p>Welcome to the Inventory Management System of University of Colombo, your centralized solution for tracking all equipment utilized across our esteemed institution.</p>
+            <div class="btns">
+                <a href="register.php"><button class="btnEmp">Register</button></a>
+                <a href="signin.php"><button class="btnFill">Login</button></a>
+            </div>
         </div>
     </div>
 </body>
+
+    <script>
+        var currentTime = new Date().getHours();
+
+        var greeting;
+
+        if (currentTime >= 5 && currentTime < 12) {
+            greeting = "Good Morning";
+        } else if (currentTime >= 12 && currentTime < 18) {
+            greeting = "Good Afternoon";
+        } else {
+            greeting = "Good Evening";
+        }
+
+        document.getElementById("greeting").textContent = greeting;
+    </script>
+
 </html>

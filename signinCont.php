@@ -16,6 +16,7 @@
         
 
         if ($dbpassword && password_verify($password, $dbpassword)) {
+            $_SESSION['username'] = $username;
             $_SESSION['userSection'] = $userSection;
             $_SESSION['userP'] = $userP;
             if ($_SESSION['userP'] == 0) {
