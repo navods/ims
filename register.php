@@ -1,6 +1,5 @@
 <?php
     require_once "userCheck.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -18,59 +17,55 @@
     <header>
         <img class="navLogo" src="img/shortLogoW.svg">
         <nav class="navText">
-        <div><a href="index.php">Home</a></div>
-            <div><a href="signin.php">Sign In</a></div>
+            <div><a href="index.php">Home</a></div>
+            <div><a href="signin.php">Login</a></div>
         </nav>
     </header>
-    <div class="bread">
+    <!-- <div class="bread">
         <ul class="breadcrumb">
             <li>REGISTER | STEP 01</li>
         </ul>
     </div>
-    <br>
+    <br> -->
 
-    <div class="loginContainer">
-        <div class="registerBody">
-            <img src="img/shortLogoB.svg">
+    <div class="home">
+        <div class="homeBody">
+            <img src="img/LogoB.svg">
+        </div>
+        <div class="homeBody RegLog">
+            <h1>Register | Step 1</h1>
+            <p class="description">Welcome to IMS! Register now to start managing your inventory.</p>
             <form id="userCheck" action="register.php" method="post">
                 <div class="input-group">
-                <label for="username">Username</label>
+                <label for="username">Pick a Username</label>
                 <input type="text" id="username" name="username" required>
                 </div>
                 <div class="input-group">
                 <button id="checkuser" type="submit">Next</button>
                 </div>
             </form>
+            <p class="backLink">Already have an account? <b><a href="signin.php">Login</a></b></p>
         </div>
     </div>
 
-    <!-- <script>
-    // Check for the message parameter in the URL
-    window.onload = function() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const message = urlParams.get('message');
+    <div id="notification" class="notification"></div>
+    <script>
+        <?php
+            session_start();
+            if(isset($_SESSION['message'])): ?>
+                var message = "<?php echo $_SESSION['message']; ?>"; 
+                displayNotification(message);
+            <?php unset($_SESSION['message']);?>
+        <?php endif; ?>
 
-      // If a message is received, display it as a popup
-      if (message) {
-        alert(message);
-        // You can also use other methods to display the message in a modal or a specific UI element
-      }
-    };
-    </script> -->
-
-    <?php
-        session_start();
-
-        if (isset($_SESSION['message'])) {
-            // Get the message from the session
-            $message = $_SESSION['message'];
-
-            // Display the message in a JavaScript popup
-            echo "<script>alert('$message');</script>";
-
-            // Unset or clear the 'message' session variable
-            unset($_SESSION['message']);
+        function displayNotification(message) {
+            var notification = document.getElementById("notification");
+            notification.textContent = message;
+            notification.classList.add("show");
+            setTimeout(function() {
+                notification.classList.remove("show");
+            }, 4000); // 4 seconds
         }
-    ?>
+    </script>
 </body>
 </html>

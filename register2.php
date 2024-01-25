@@ -1,10 +1,3 @@
-<?php
-    // session_start();
-    // if (isset($_SESSION['username'])) {
-    //     $username = $_SESSION['username'];
-    // }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,42 +13,63 @@
     <header>
         <img class="navLogo" src="img/shortLogoW.svg">
         <nav class="navText">
-        <div><a href="index.php">Home</a></div>
-            <div><a href="signin.php">Sign In</a></div>
+            <div><a href="index.php">Home</a></div>
+            <div><a href="signin.php">Login</a></div>
         </nav>
     </header>
-    <div class="bread">
+    <!-- <div class="bread">
         <ul class="breadcrumb">
             <li>REGISTER | STEP 02</li>
         </ul>
     </div>
-    <br>
+    <br> -->
 
-    <div class="loginContainer">
-        <div class="registerBody">
-            <img src="img/shortLogoB.svg">
+    <div class="home">
+        <div class="homeBody">
+            <img src="img/LogoB.svg">
+        </div>
+        <div class="homeBody RegLog">
+            <h1>Register | Step 2</h1>
+            <p class="description">Please enter your details to complete the registration.</p>
             <form id="login-form" action="registerCont.php" method="post">
-                <!-- <div class="input-group greyed">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" value="<?php echo $username ?>" readonly>
-                </div> -->
                 <div class="input-group">
                 <label for="fullName">Full Name</label>
-                <input type="text" id="fullName" name="fullName" required>
+                <input type="text" id="fullName" name="fullName">
                 </div>
                 <div class="input-group">
                 <label for="email">E-mail</label>
-                <input type="text" id="email" name="email" required>
+                <input type="text" id="email" name="email">
                 </div>
                 <div class="input-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password">
                 </div>
                 <div class="input-group">
                 <button id="register" type="submit">Register</button>
                 </div>
             </form>
+            <p class="backLink">Already have an account? <b><a href="signin.php">Login</a></b></p>
         </div>
     </div>
+
+    <div id="notification" class="notification"></div>
+    <script>
+        <?php
+            session_start();
+            if(isset($_SESSION['message'])): ?>
+                var message = "<?php echo $_SESSION['message']; ?>"; 
+                displayNotification(message);
+            <?php unset($_SESSION['message']);?>
+        <?php endif; ?>
+
+        function displayNotification(message) {
+            var notification = document.getElementById("notification");
+            notification.textContent = message;
+            notification.classList.add("show");
+            setTimeout(function() {
+                notification.classList.remove("show");
+            }, 4000); // 4 seconds
+        }
+    </script>
 </body>
 </html>

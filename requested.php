@@ -1,3 +1,7 @@
+<?php
+    $_SESSION = [];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,21 +18,24 @@
         <img class="navLogo" src="img/shortLogoW.svg">
         <nav class="navText">
             <div><a href="index.php">Home</a></div>
+            <div><a href="signin.php">Login</a></div>
         </nav>
     </header>
-    <div class="bread">
+    <!-- <div class="bread">
         <ul class="breadcrumb">
             <li>REGISTER | STEP 03</li>
         </ul>
     </div>
-    <br>
+    <br> -->
 
     <div class="home">
         <div class="homeBody">
-            <img class="homePic" src="img/requested.svg">
+            <img src="img/LogoB.svg">
         </div>
-        <div class="homeBody">
-            <img class="homeLogo" src="img/logoB.svg">
+        <div class="homeBody RegLog">
+            <h1>Requested!</h1>
+            <p class="description">Your request has been submitted. You will have access once an administrator accepts it.</p>
+            <p class="backLink">Go to <b><a href="signin.php">Login</a></b></p>
         </div>
     </div>
 

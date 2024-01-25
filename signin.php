@@ -24,9 +24,13 @@
     </div> -->
     <br>
 
-    <div class="loginContainer">
-        <div class="loginBody">
-            <img src="img/shortLogoB.svg">
+    <div class="home">
+        <div class="homeBody">
+            <img src="img/LogoB.svg">
+        </div>
+        <div class="homeBody RegLog">
+        <h1>Login</h1>
+            <p class="description">Welcome back! Please login to your account.</p>
             <form id="login-form" action="signinCont.php" method="post">
                 <div class="input-group">
                 <label for="username">Username</label>
@@ -40,7 +44,28 @@
                 <button id="login" type="submit">Login</button>
                 </div>
             </form>
+            <p class="backLink">New user? <b><a href="register.php">Register</a></b></p>
         </div>
     </div>
+
+    <div id="notification" class="notification"></div>
+    <script>
+        <?php
+            session_start();
+            if(isset($_SESSION['message'])): ?>
+                var message = "<?php echo $_SESSION['message']; ?>"; 
+                displayNotification(message);
+            <?php unset($_SESSION['message']);?>
+        <?php endif; ?>
+
+        function displayNotification(message) {
+            var notification = document.getElementById("notification");
+            notification.textContent = message;
+            notification.classList.add("show");
+            setTimeout(function() {
+                notification.classList.remove("show");
+            }, 4000); // 4 seconds
+        }
+    </script>
 </body>
 </html>
