@@ -21,11 +21,9 @@
             $_SESSION['userP'] = $userP;
             if ($_SESSION['userP'] == 0) {
                 header("Location: requested.php");
-            }
-            if ($_SESSION['userP'] == 1) {
+            }elseif ($_SESSION['userP'] == 1) {
                 header("Location: dashboard.php");
-            }
-            if ($_SESSION['userP'] == -1) {
+            } elseif ($_SESSION['userP'] == -1) {
                 header("Location: regDenied.php");
             }
             exit();
