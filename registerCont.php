@@ -8,7 +8,7 @@
         if (isset($_POST['fullName']) && isset($_POST['email']) && isset($_POST['password'])) {
 
             $username = $_SESSION['username'];
-            $fullName = $_POST['fullName'];
+            $fullName = ucwords($_POST['fullName']);
             $email = $_POST['email'];
             $password = $_POST['password'];
             

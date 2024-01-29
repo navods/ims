@@ -1,0 +1,90 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+}
+
+td {
+    font-family: 'Assistant', sans-serif;
+}
+
+th, td {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    vertical-align: center;
+}
+
+.data {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+th:last-child {
+    text-align: center;
+}
+
+.dataless {
+    text-align: center;
+}
+
+.editCircle {
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+    height: 1.6rem;
+    border: 2px solid rgb(255, 255, 255);
+    transition: border 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+.editCircle:hover {
+    border: 2px solid blueviolet;
+}
+
+
+
+
+.menuContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.menuBtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.menuContent {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    z-index: 99;
+    text-align: left;
+    font-size: 0.8rem;
+}
+
+.menuContent a {
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: black;
+    border-radius: 10px;
+}
+
+.menuContent a:hover {
+    background-color: #d1d1d1;
+}
+
+.menuContainer:hover .menuContent {
+    display: block;
+}
