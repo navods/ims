@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,6 @@
     <link rel="icon" type="image/x-icon" href="img/icon.svg">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/home.css">
-    <link rel="stylesheet" type="text/css" href="css/forms.css">
     <title>Register | Inventory Management System</title>
 </head>
 <body>

@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 if (isset($_SESSION['username'])) {
     if ($_SESSION['userP'] == 0) {
         header("Location: requested.php");

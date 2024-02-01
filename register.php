@@ -1,5 +1,6 @@
 <?php
     require_once "userCheck.php";
+    session_start();
 ?>
 
 <!DOCTYPE html>

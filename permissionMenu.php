@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +19,7 @@
     <br>
 
     <div class="menu">
-        <div class="menuItem"><a href="newRequests.php">New Requests</a></div>
+        <div class="menuItem"><a href="userReqs.php">New Requests</a></div>
         <div class="menuItem"><a href="userList.php">User Database</a></div>
     </div>
 </body>

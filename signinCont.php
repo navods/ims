@@ -7,23 +7,22 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
     
-        $stmt = $conn->prepare("SELECT username, password, userSection, userP FROM users WHERE username = ?");
+        $stmt = $conn->prepare("SELECT username, password, userP FROM users WHERE username = ?");
         $stmt->bind_param("s", $username);
         $stmt->execute();
-        $stmt->bind_result($username, $dbpassword, $userSection, $userP);
+        $stmt->bind_result($username, $dbpassword, $userP);
         $stmt->fetch();
         $stmt->close();
         
 
         if ($dbpassword && password_verify($password, $dbpassword)) {
             $_SESSION['username'] = $username;
-            $_SESSION['userSection'] = $userSection;
             $_SESSION['userP'] = $userP;
             if ($_SESSION['userP'] == 0) {
                 header("Location: requested.php");
-            }elseif ($_SESSION['userP'] == 1) {
+            }elseif ($_SESSION['userP'] > 0) {
                 header("Location: dashboard.php");
-            } elseif ($_SESSION['userP'] == -1) {
+            } elseif ($_SESSION['userP'] < -1) {
                 header("Location: regDenied.php");
             }
             exit();

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "include/dbh.php";
 
 $sql = "SELECT username, fullname, email FROM users WHERE userP = 0";
