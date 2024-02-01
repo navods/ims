@@ -13,7 +13,7 @@ $sql = "SELECT username, fullName, email,
                 WHEN userP = 2 THEN 'Supervisor'
                 WHEN userP = 3 THEN 'Administrator'
                 ELSE 'Unknown'
-            END AS title, userSection FROM users WHERE username = '$username'";
+            END AS title FROM users WHERE username = '$username'";
 
 $result = mysqli_query($conn, $sql);
 $resultcheck = mysqli_num_rows($result);
@@ -24,7 +24,6 @@ if ($resultcheck == 1) {
     $fullName = $row['fullName'];
     $email = $row['email'];
     $title = $row['title'];
-    $userSection = $row['userSection'];
 }
 
 $sql = "SELECT facID, facName FROM fac";
@@ -59,15 +58,19 @@ $faccheck = mysqli_num_rows($fac);
         <h1><?php echo $fullName ?></h1>
         <form id="edit-form" action="actEditUserCont.php" method="post">
                 <div class="infoItem">
-                <label for="fullName">Username</label>
-                <input type="text" id="username" name="username">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" value="<?php echo $username ?>" readonly>
                 </div>
                 <div class="infoItem">
-                <label for="email">E-mail</label>
-                <input type="text" id="email" name="email">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" name="fullName" value="<?php echo $fullName ?>" readonly>
                 </div>
                 <div class="infoItem">
-                    <label for="faculty">Select Faculty:</label>
+                    <label for="email">E-mail:</label>
+                    <input type="text" id="email" name="email" value="<?php echo $email ?>" readonly>
+                </div>
+                <div class="infoItem">
+                    <label for="faculty">Faculty:</label>
                     <select id="faculty" name="faculty" onchange="updateDepartments(); updateLabs()">
                         <option value="">Select Faculty</option>
                         <?php
@@ -78,13 +81,15 @@ $faccheck = mysqli_num_rows($fac);
                         }
                         ?>
                     </select>
-                    
-                    <label for="department">Select Department:</label>
+                </div>
+                <div class="infoItem">   
+                    <label for="department">Department:</label>
                     <select id="department" name="department" onchange="updateLabs()">
                         <option value="">Select Department</option>
                     </select>
-
-                    <label for="lab">Select Lab:</label>
+                </div>
+                <div class="infoItem">
+                    <label for="lab">Lab:</label>
                     <select id="lab" name="lab">
                         <option value="">Select Lab</option>
                     </select>
