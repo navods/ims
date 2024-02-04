@@ -28,45 +28,25 @@ $username = $_SESSION['username'];
 
     <div class="body">
         <div class="container">
+            <h1>Change Password</h1>
             <form id="changePassForm" action="actChangePassword.php" method="post">
                 <div class="input-group">
-                <label for="oldPass">Old Password</label>
-                <input type="text" id="oldPass" name="oldPass">
+                <label for="oldPass">Current Password</label>
+                <input type="password" id="oldPass" name="oldPass">
                 </div>
                 <div class="input-group">
                 <label for="newPass">New Password</label>
-                <input type="text" id="newPass" name="newPass">
+                <input type="password" id="newPass" name="newPass">
                 </div>
                 <div class="input-group">
-                <label for="confirmPass">Confirm New Password</label>
-                <input type="confirmPass" id="confirmPass" name="confirmPass">
+                <label for="confirmPass">Confirm Password</label>
+                <input type="password" id="confirmPass" name="confirmPass">
                 </div>
-                <div class="input-group">
-                <button id="changePass" type="submit">Update Passsword</button>
-                </div>
+                <button id="changePass" type="submit" class="purple">Update</button>
             </form>
         </div>
     </div>
 
-    <div id="notification" class="notification"></div>
-    <script>
-        <?php
-            session_start();
-            if(isset($_SESSION['message'])): ?>
-                var message = "<?php echo $_SESSION['message']; ?>"; 
-                console.log(message);
-                displayNotification(message);
-            <?php unset($_SESSION['message']);?>
-        <?php endif; ?>
-
-        function displayNotification(message) {
-            var notification = document.getElementById("notification");
-            notification.textContent = message;
-            notification.classList.add("show");
-            setTimeout(function() {
-                notification.classList.remove("show");
-            }, 4000); // 4 seconds
-        }
-    </script>
+    <?php include "include/notification.php" ?>
 </body>
 </html>

@@ -1,7 +1,10 @@
 <?php
     session_start();
+    $username = $_SESSION['username'];
     $_SESSION = array();
     session_destroy();
-    // echo $_SESSION['username'] . "<br>" . $_SESSION['userSection'] . "<br>" . $_SESSION['userP'] . "<br>";
+
+    session_start();
+    $_SESSION['message'] = "$username Signed Out";
     header("Location: index.php");
     exit();

@@ -27,7 +27,9 @@
             }
             exit();
         } else {
-            echo "Error: Incorrect Username or Password";
+            $_SESSION['message'] = "Incorrect Username or Password";
+            header("Location: signin.php");
+            exit();
         }
     }
 
