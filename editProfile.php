@@ -88,6 +88,8 @@ if(isset($userFac) && $userFac !== null) {
     </div>
     <br>
 
+    <p><?php echo $username . $fullName . $email . $title . $userFac . $userFacName. $userDep . $userDepName . $userLab . $userLabName ?></p>
+
     <div class="body">
         <div class="container">
             <h1>Change Password</h1>
