@@ -7,7 +7,6 @@ if(isset($_GET['username'])) {
 
 require_once "include/dbh.php";
 
-//(SELECT secName FROM sections WHERE secID = userSection) AS section
 $sql = "SELECT username, fullName, email,
             CASE 
                 WHEN userP = 1 THEN 'Assistant'

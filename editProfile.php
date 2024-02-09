@@ -47,7 +47,7 @@ if(isset($userFac) && $userFac !== null) {
     
         if ($resultcheck == 1) {
             $row = mysqli_fetch_assoc($result);
-    
+
             $userDepName = $row['depName'];
         }
 
@@ -59,7 +59,7 @@ if(isset($userFac) && $userFac !== null) {
         
             if ($resultcheck == 1) {
                 $row = mysqli_fetch_assoc($result);
-        
+
                 $userLabName = $row['labName'];
             }
         }
