@@ -1,0 +1,25 @@
+-- Create fac table
+CREATE TABLE fac (
+    facID INT AUTO_INCREMENT PRIMARY KEY,
+    facName VARCHAR(150) NOT NULL
+);
+
+-- Create dep table
+CREATE TABLE dep (
+    depID INT AUTO_INCREMENT,
+    facID INT,
+    depName VARCHAR(150) NOT NULL,
+    PRIMARY KEY (depID, facID), -- Composite primary key
+    FOREIGN KEY (facID) REFERENCES fac(facID)
+);
+
+-- Create lab table
+CREATE TABLE lab (
+    labID INT AUTO_INCREMENT,
+    facID INT,
+    depID INT,
+    labName VARCHAR(150) NOT NULL,
+    PRIMARY KEY (labID, depID, facID), -- Composite primary key
+    FOREIGN KEY (facID) REFERENCES fac(facID),
+    FOREIGN KEY (depID) REFERENCES dep(depID)
+);
