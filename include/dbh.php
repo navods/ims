@@ -12,6 +12,11 @@
     //     echo "Connection failed: " . $e->getMessage();
     // }
 
+    // $servername = "sql6.freesqldatabase.com";
+    // $db_username = "sql6692291";
+    // $db_password = "gkaslwFJPH";
+    // $dbname = "sql6692291";
+
     $servername = "localhost";
     $db_username = "root";
     $db_password = "";

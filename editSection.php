@@ -116,5 +116,6 @@ $facResultcheck = mysqli_num_rows($facResult);
             </table>
         </div>
     </div>
+    <?php include "include/notification.php" ?>
 </body>
 </html>

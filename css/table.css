@@ -1,6 +1,8 @@
 table {
     width: 100%;
     border-collapse: collapse;
+    /* table-layout: fixed;
+    word-wrap:break-word; */
 }
 
 th {
@@ -87,4 +89,22 @@ th:last-child {
 
 .menuContainer:hover .menuContent {
     display: block;
+}
+
+select {
+    width: 100%;
+    padding: 0.3rem 0.2rem;
+    font-weight: 300;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.finalSubmit {
+    margin-top: 2rem;
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 10px;
+    background-color: blueviolet;
+    color: white;
+    border: 0;
 }
