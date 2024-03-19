@@ -108,3 +108,20 @@ select {
     color: white;
     border: 0;
 }
+
+.tableBtns {
+    padding: 0.5rem 0;
+    width: 49%;
+    border-radius: 5px;
+    border: 0;
+}
+
+.green {
+    background-color: #85d32b;
+    color: white;
+}
+
+.red {
+    background-color: #EC5656;
+    color: white;
+}

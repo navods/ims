@@ -36,62 +36,56 @@ $faccheck = mysqli_num_rows($fac);
     <div class="container">
         <h1>New Requests</h1>
         <div class="table">
-            <form action="process_permissions.php" method="POST">
-                <table>
-                    <tr>
-                        <th style="width: 20%;">Username</th>
-                        <th style="width: 30%;">Full Name</th>
-                        <th style="width: 30%;">E-mail</th>
-                        <th style="width: 20%;">Actions</th>
-                    </tr>
-                    <?php
-                    if ($resultcheck > 0) {
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            echo "<tr>";
-                            echo "<td>".$row['username']."</td>";
-                            echo "<td>".$row['fullname']."</td>";
-                            echo "<td>".$row['email']."</td>";
-                            echo "<td class='dropdown'>
-                                    <select name='permissions[]' id='permission' onchange='updatePermissions()'>
-                                        <option value='0'>No Access</option>
-                                        <option value='1'>Accept - Assistant</option>
-                                        <option value='2'>Accept - Supervisor</option>
-                                        <option value='3'>Accept - Administrator</option>
-                                        <option value='-1'>Reject Request</option>
-                                    </select>
-                                </td>";
-                            echo "</tr>";
-                            echo "<tr id='section' style='display: none;'>
-                                <td>Section :</td>";
-                            echo "<td><select id='faculty' name='faculty' onchange='updateDepartments(); updateLabs()'>
-                                    <option value=''>Select Faculty</option>";
-                                    if ($faccheck > 0) {
-                                        while ($row = mysqli_fetch_assoc($fac)) {
-                                            echo "<option value=".$row['facID'].">".$row['facName']."</option>";
-                                        }
-                                    }
-                                echo "</select></td>
-                                <td><select id='department' name='department' onchange='updateLabs()'>
-                                    <option value=''>Select Department</option>
-                                </select></td>
-                                <td><select id='lab' name='lab'>
-                                    <option value=''>Select Lab</option>
-                                </select></td>";
-                            echo "</tr>";
-                        }
-                    } else {
+            <table>
+                <tr>
+                    <th style="width: 20%;">Username</th>
+                    <th style="width: 30%;">Full Name</th>
+                    <th style="width: 30%;">E-mail</th>
+                    <th style="width: 20%;">Actions</th>
+                </tr>
+                <?php
+                if ($resultcheck > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $user = $row['username'];
                         echo "<tr>";
-                        echo "<td colspan='6' class='dataless'>";
-                        echo "No New Requests";
-                        echo "</td>";
+                        echo "<td>".$row['username']."</td>";
+                        echo "<td>".$row['fullname']."</td>";
+                        echo "<td>".$row['email']."</td>";
+                        echo "<td class='dropdown'>
+                                <button class='tableBtns green'>Accept</button>
+                                <a href='actRejectUserReqs.php?username=".$user."'><button class='tableBtns red'>Reject</button></a>
+                            </td>";
+                        echo "</tr>";
+                        echo "<tr id='section' style='display: none;'>
+                            <td>Section :</td>";
+                        echo "<td><select id='faculty' name='faculty' onchange='updateDepartments(); updateLabs()'>
+                                <option value=''>Select Faculty</option>";
+                                if ($faccheck > 0) {
+                                    while ($row = mysqli_fetch_assoc($fac)) {
+                                        echo "<option value=".$row['facID'].">".$row['facName']."</option>";
+                                    }
+                                }
+                            echo "</select></td>
+                            <td><select id='department' name='department' onchange='updateLabs()'>
+                                <option value=''>Select Department</option>
+                            </select></td>
+                            <td><select id='lab' name='lab'>
+                                <option value=''>Select Lab</option>
+                            </select></td>";
                         echo "</tr>";
                     }
-                    ?>
-                </table>
-                <button class="finalSubmit" type="submit">Submit</button>
-            </form>
+                } else {
+                    echo "<tr>";
+                    echo "<td colspan='6' class='dataless'>";
+                    echo "No New Requests";
+                    echo "</td>";
+                    echo "</tr>";
+                }
+                ?>
+            </table>
         </div>
     </div>
+    <?php include "include/notification.php" ?>
 </body>
 </html>
 
@@ -155,16 +149,29 @@ $faccheck = mysqli_num_rows($fac);
     }
 
     function updatePermissions() {
-    var permissionSelect = document.getElementById("permission");
-    var row = document.getElementById("section");
+        var permissionSelect = document.getElementById("permission");
+        var row = document.getElementById("section");
 
-    // Hide all items initially
-    row.style.display = "none";
+        // Hide all items initially
+        row.style.display = "none";
 
-    // Check if a positive value is selected
-    if (permissionSelect.value > 0) {
-        row.style.display = "table-row";
+        // Check if a positive value is selected
+        if (permissionSelect.value > 0) {
+            row.style.display = "table-row";
+        }
     }
-}
 
 </script>
+
+
+
+
+
+
+<!-- <select name='permissions[]' id='perm".$user."' onchange='updatePermissions()'>
+                                        <option value='0'>No Access</option>
+                                        <option value='1'>Accept - Assistant</option>
+                                        <option value='2'>Accept - Supervisor</option>
+                                        <option value='3'>Accept - Administrator</option>
+                                        <option value='-1'>Reject Request</option>
+                                    </select> -->
